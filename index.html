@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Music App</title>
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+
+            /* DEBUG */
+            /* border: 1px solid #33afe6; */
+        }
+
+        /* body .container section .col-2 .sec-1 */
+        body {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        section {
+            width: 100%;
+
+            padding: 80px;
+   
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        button,
+        img,
+        form,
+        label,
+        input {
+            padding: 24px;
+        }
+
+        .columns {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .col-2 {
+            width: 49%;
+        }
+        .col-3 {
+            width: 32%;
+        }
+        .col-4 {
+            width: 24%;
+        }
+
+        .primaryBtn {
+            color: #254447;
+            background-color: #f9f9f9;
+            border-radius: 13px;
+        }
+        .primaryBtn:hover {
+            color: #f9f9f9;
+            background-color: #254447;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .secondaryBtn {
+            color: #f9f9f9;
+            background-color: #254447;
+            border-radius: 13px;
+        }
+        .secondaryBtn:hover {
+            color: #254447;
+            background-color: #f9f9f9;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        /* utilities */
+        /* utilities jsou light, dark, center, mustard, h1, h2, h3, h4,  */
+        .light {
+            color: #254447;
+            background-color: #f9f9f9;
+        }
+        .dark {
+            color: #f9f9f9;
+            background-color: #254447;
+        }
+
+        .center {
+            text-align: center;
+        }
+        .mustard {
+            color: #ffd066;
+        }
+        h1 {
+            font-size: 60px;
+            text-transform: uppercase;
+        }
+        h2 {
+            font-size: 48px;
+        }
+        h3 {
+            font-size: 36px;
+        }
+        h4  {
+            font-size: 30px;
+        }
+        h5 {
+            font-size: 24px;
+        }
+        h6  {
+            font-size: 22px;
+        }
+        p {
+            font-size: 18px;
+        }
+        img {
+            width: 100%;
+        }
+        button {
+            display: block;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        label {
+            width: 100%;
+            font-size: 18px;
+        }
+        input {
+            width: 100%;
+            font-size: 18px;
+        }
+
+        /* FORMULAR */
+
+        form {
+            display: block;
+        }
+
+        label {
+            display: block;
+        }
+
+        input {
+            display: block;
+        }
+
+
+        /* STYLOVÁNÍ KONKRÉTNÍCH SEKCÍ NEBO ELEMENTŮ */
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-bottom: 0;
+        }
+
+        /* img-1 img-2 img-3 img-4 icons */
+
+
+        .img-1 {
+            width: 75%;
+            padding-bottom: 0;
+            display: block;
+            margin: 0 auto;
+
+            
+        }
+        .icons {
+            width: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 799px) {
+            section {
+                padding: 40px;
+
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .columns {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .col-2,
+            .col-3,
+            .col-4 {
+                width: 100%;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            button,
+            img {
+                padding: 20px;
+            }
+
+            /* demo-section */
+            .palette {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+         @media (max-width: 477px) {
+            section {
+                padding: 60px;
+
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .columns {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .col-2,
+            .col-3,
+            .col-4 {
+                width: 100%;
+            }
+
+             /* demo-section */
+            .palette {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+
+
+
+
+        /* barevna paletka */
+        .demo-section {
+
+            color: #000;
+            display: block;
+            align-items: stretch;
+            justify-content: flex-start;
+
+
+        }
+        .palette {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .palette li {
+            list-style: none;
+        }
+
+        .color1, 
+        .color2, 
+        .color3, 
+        .color4, 
+        .color5, 
+        .color6 {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+        } 
+
+        .color1 {
+            background-color: #f9f9f9;
+        }
+        .color2 {
+            background-color: #254447;
+        }
+        .color3 {
+            background-color: #ffd066;
+        }
+        .color4 {
+            background-color: #4c4C4c;
+        }
+        .color5 {
+            background-color: #e3e3e3;
+        }
+        .color6 {
+            background-color: #b0b0b0;
+        }
+
+/*      
+        Pouzite barvy
+
+        #f9f9f9
+        #254447
+        #ffd066
+        
+        POJMENOVANI SEKCI
+
+        s1  .hero-section
+        s2  .product-show
+        s3  .value-proposition
+        s4  .secondary-cta
+        s5  .social-proof
+        s6  .pricing-plans
+        s7  .signup-cta
+        
+        body
+        .container
+        .col-2
+        .col-3
+        .col-4
+        section
+        .sec-1
+        .sec-2
+        .sec-3
+        .sec-4
+        .sec-5
+        .sec-6
+        .sec-7
+
+        globalni styly
+
+        h1 {
+            font-size: 60px;
+            text-transform: uppercase;
+        }
+        h2 {
+            font-size: 48px;
+        }
+        h3 {
+            font-size: 36px;
+        }
+        h4  {
+            font-size: 30px;
+        }
+        h5 {
+            font-size: 24px;
+        }
+        h6  {
+            font-size: 22px;
+        }
+        p {
+            font-size: 18px;
+        }
+        button
+
+        
+*/
+
+    </style>
+</head>
+<body>
+    <section class="sec-1 hero-section light">
+        <h1 class="center">Your Music App</h1>
+        <p class="center">A supporting statement for your value proposition to encourage customers to complet your CTA</p>
+        <button class="primaryBtn center">Sign up now</button>
+        <img src="img/hero-image-main.png" class="img-1" alt="">
+    </section>
+    <section class="sec-2 product-show dark">
+        <div class="columns">
+            <div class="col-2">
+                <h2 class="mustard">Your Product Presented in Use</h2>
+                <p>A few words about your product / offer. Focus on the benefits not the features. Explain how your product wil improve your customer´s life.</p>
+                <p>A few words about your product / offer. Focus on the benefits not the features. Explain how your product wil improve your customer´s life.</p>
+            </div>
+            <div class="col-2">
+                <img src="img/features-phone-mockup.png" class="img-2" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="sec-3 value-proposition dark center">
+        <h3>Your Value Proposition</h3>
+        <div class="columns">
+            <div class="col-3">
+                <img src="img/feature-icon-check.png" class="icons" alt="">
+                <p>How will your product change your customer´s life</p>
+            </div>
+            <div class="col-3">
+                <img src="img/feature-icon-lighting.png" class="icons" alt="">
+                <p>How will your product change your customer´s life</p>
+            </div>
+            <div class="col-3">
+                <img src="img/feature-icon-star.png" class="icons" alt="">
+                <p>How will your product change your customer´s life</p>
+            </div>
+        </div>
+    </section>
+    <section class="sec-4 secondary-cta light">
+        <div class="columns">
+            <div class="col-2">
+                <img src="img/about-section-image.png" class="img-3" alt="">
+            </div>
+            <div class="col-2">
+                <h3>A few sentences about your product. How it help to solve clients problems. It shoudl convince the unconvincer. No fake quotes or photos.</h3>
+                <p>A few words about your product/offer. Focus on the benefits not the features. Explain how your product will improve your customer ´s life.</p>
+                <button>Sign up now</button>
+            </div>
+        </div>
+        
+    </section>
+    <section class="sec-5 social-proof dark">
+        <h2>They Trusted Us</h2>
+        <div class="columns">
+            <div class="col-3">
+                <p>A few sentences abot your product. How it help to sole clients problems. It shoudl convince the unconvinced. No fake quotes or photos!</p>
+                <p>Michael Walker</p>
+                <p class="mustard">CEO, SomeCompany</p>
+            </div>
+            <div class="col-3">
+                <p>A few sentences abot your product. How it help to sole clients problems. It shoudl convince the unconvinced. No fake quotes or photos!</p>
+                <p>Michael Walker</p>
+                <p class="mustard">CEO, SomeCompany</p>
+            </div>
+            <div class="col-3">
+                <p>A few sentences abot your product. How it help to sole clients problems. It shoudl convince the unconvinced. No fake quotes or photos!</p>
+                <p>Michael Walker</p>
+                <p class="mustard">CEO, SomeCompany</p>
+            </div>
+        </div>
+
+    </section>
+    <section class="sec-6 pricing-plans light center">
+        <h2>Pricing</h2>
+        <div class="columns">
+            <div class="col-3">
+                <h3>BASIC</h3>
+                <p>9 USD per month</p>
+                <p>Add a description of your offer and key benefits.</p>
+                <p>Benefit No. 1</p>
+                <p>Benefit No. 2</p>
+                <p>Benefit No. 3</p>
+                <button>Sign up now</button>
+            </div>
+            <div class="col-3">
+                <h3>BASIC</h3>
+                <p>9 USD per month</p>
+                <p>Add a description of your offer and key benefits.</p>
+                <p>Benefit No. 1</p>
+                <p>Benefit No. 2</p>
+                <p>Benefit No. 3</p>
+                <button>Sign up now</button>
+            </div>
+            <div class="col-3">
+                <h3>BASIC</h3>
+                <p>9 USD per month</p>
+                <p>Add a description of your offer and key benefits.</p>
+                <p>Benefit No. 1</p>
+                <p>Benefit No. 2</p>
+                <p>Benefit No. 3</p>
+                <button>Sign up now</button>
+            </div>
+        </div>
+    </section>
+    <section class="sec-7 signup-cta dark">
+        <div class="columns">
+            <div class="col-2">
+                <h2>Create a free account</h2>
+                <h3>Test our product for 14 days for free.</h3>
+                <form action="">
+                    <label for="name">Your name</label>
+                    <input type="text" id="name" name="name">
+                    <label for="email">Email address</label>
+                    <input type="email">
+                    <label class="checkbox">
+                        <input type="checkbox" name="agree">
+                        <span class="custom-check"></span>
+                        I agree to recieve commercial information from (...)
+                    </label>
+                    <input type="submit" name="subscribe" value="Sign up now">
+
+                </form>
+            </div>
+            <div class="col-2">
+                <img src="img/contact-form-illustration.png" class="img-4" alt="">
+            </div>
+        </div>
+
+    </section>
+    <section class="sec-8 demo-section">
+        <h1>Heading 1 - Velký nadpis 60px</h1>
+        <h2>Heading 2 - Sekční nadpis 48px</h2>
+        <h3>Heading 3 - Podnadpis sekce 36 px</h3>
+        <h4>Heading 4 - Zvýrazněné prvky 30px</h4>
+        <h5>Heading 5 - Titulky boxů 24px</h5>
+        <h6>Heading 6 22px</h6>
+        <p>Paragraph - Odstavcový text</p>
+        <button class="primaryBtn">Button</button>
+        <button class="secondaryBtn">Button</button>
+        <div class="palette">
+            <li><div class="color1"></div></li>
+            <li>#f9f9f9</li>
+            <li><div class="color2"></div></li>
+            <li>#254447</li>
+            <li><div class="color3"></div></li>
+            <li>#ffd066</li>
+            <li><div class="color4"></div></li>
+            <li>#000000</li>
+            <li><div class="color5"></div></li>
+            <li>#000000</li>
+            <li><div class="color6"></div></li>
+            <li>#000000</li>
+        </div>
+
+    </section>
+    <script>
+        setInterval(() => console.log(Date.now(),window.innerWidth), 1000);
+
+        console.log(Object.getOwnPropertyDescriptior(window.__proto__, 'innerWidth'));
+    </script>
+</body>
+</html>
